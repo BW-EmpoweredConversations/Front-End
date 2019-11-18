@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import logo from '../logo.svg';
 
-function LoginPage() {
+function Login() {
 
     return (
         <section >
@@ -23,4 +23,4 @@ function LoginPage() {
     );
 }
 
-export default LoginPage;
+export default Login;
