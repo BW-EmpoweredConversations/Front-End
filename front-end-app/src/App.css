@@ -66,3 +66,7 @@ button {
   background-color: #e0f0fc;
   box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.2);
 }
+
+.form-field {
+  margin-top: 20px;
+}
