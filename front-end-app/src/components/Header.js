@@ -8,11 +8,11 @@ export default function Header() {
       <Link to="/">
         <button>Go to Home</button>
       </Link>
-      <Link to="/Login">
-        <button>Go to Login</button>
-      </Link>
       <Link to="/Register">
         <button>Register</button>
+      </Link>
+      <Link to="/Login">
+        <button>Go to Login</button>
       </Link>
     </header>
   );
