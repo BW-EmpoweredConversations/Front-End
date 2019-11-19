@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { userLogin } from "../actions/index";
 import "../App.css";
+import styled from "styled-components";
 
 const Login = props => {
   const [login, setLogin] = useState({ username: "", password: "" });
@@ -17,26 +18,38 @@ const Login = props => {
     props.history.push("/");
   };
 
+  const FormContainer = styled.div`
+    width: 460px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 32px;
+    font-weight: bold;
+    background-color: #e0f0fc;
+    box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.2);
+  `;
+
   return (
-    <div className="login_form_container">
+    <FormContainer>
       <h2>Login</h2>
       <form className="login_form" onSubmit={handleSubmit}>
-        <div className="login_username_container">
+        <div>
           <input
             type="text"
             name="username"
             value={login.username}
             onChange={handleChanges}
             placeholder="username"
+            className="login-username-container"
           />
         </div>
-        <div className="login_password_container">
+        <div>
           <input
             type="password"
             name="password"
             value={login.password}
             placeholder="password"
             onChange={handleChanges}
+            className="login-password-container"
           />
         </div>
         <button
@@ -46,7 +59,7 @@ const Login = props => {
           Login
         </button>
       </form>
-    </div>
+    </FormContainer>
   );
 };
 
