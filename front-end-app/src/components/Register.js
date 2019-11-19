@@ -35,17 +35,20 @@ return (
     {({ isSubmitting }) => (
         <Form>
             <div>
-            <label htmlFor="username">Name or Nickname</label>
+            <label htmlFor="username">Name or Nickname </label>
             <Field type="text" name="username" />
             </div>
             <div>
-            <label htmlFor="email">Valid Contact Email</label>
+            <label htmlFor="email">Valid Contact Email </label>
             <Field type="email" name="email" />
             <ErrorMessage name="email" component="div" />
             </div>
             <div>
+            <label htmlFor="password">Password </label>  
             <Field type="password" name="password" />
             <ErrorMessage name="password" component="div" />
+            </div>
+            <div>
             <button type="submit" disabled={isSubmitting}>
                 Submit </button>
             </div>
