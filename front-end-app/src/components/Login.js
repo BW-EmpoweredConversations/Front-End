@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { userLogin } from "../actions/index";
+import { Link } from "react-router-dom";
 import "../App.css";
-import styled from "styled-components";
 
 const Login = props => {
   const [login, setLogin] = useState({ username: "", password: "" });
@@ -15,21 +15,11 @@ const Login = props => {
     event.preventDefault();
     props.userLogin(login);
     localStorage.setItem("token", JSON.stringify(props.token));
-    props.history.push("/");
+    props.history.push("/Conversation");
   };
 
-  const FormContainer = styled.div`
-    width: 460px;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 32px;
-    font-weight: bold;
-    background-color: #e0f0fc;
-    box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.2);
-  `;
-
   return (
-    <FormContainer>
+    <div className="form-container">
       <h2>Login</h2>
       <form className="login_form" onSubmit={handleSubmit}>
         <div>
@@ -38,7 +28,7 @@ const Login = props => {
             name="username"
             value={login.username}
             onChange={handleChanges}
-            placeholder="username"
+            placeholder="Name"
             className="field-container"
           />
         </div>
@@ -47,11 +37,14 @@ const Login = props => {
             type="password"
             name="password"
             value={login.password}
-            placeholder="password"
+            placeholder="Password"
             onChange={handleChanges}
             className="field-container"
           />
         </div>
+        <p>
+          Don't have an account? Sign up <Link to="/Register">here</Link>
+        </p>
         <button
           disabled={login.username.length === 0 || login.password.length === 0}
           className="login_btn"
@@ -59,7 +52,7 @@ const Login = props => {
           Login
         </button>
       </form>
-    </FormContainer>
+    </div>
   );
 };
 

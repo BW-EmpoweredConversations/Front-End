@@ -38,6 +38,9 @@ export default function Header() {
         <Link to="/" className="nav">
           Home
         </Link>
+        <Link to="/Conversation" className="nav">
+          Start a Conversation
+        </Link>
         <Link to="/Register" className="nav">
           Sign Up
         </Link>

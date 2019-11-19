@@ -24,7 +24,7 @@
 
 .nav {
   text-decoration: none;
-  margin: 3rem;
+  margin: 2rem;
   font-weight: bold;
   color: black;
   font-size: 19px;
@@ -55,4 +55,14 @@ button {
   cursor: pointer;
   outline: none;
   -webkit-appearance: none;
+}
+
+.form-container {
+  width: 460px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 32px;
+  font-weight: bold;
+  background-color: #e0f0fc;
+  box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.2);
 }
