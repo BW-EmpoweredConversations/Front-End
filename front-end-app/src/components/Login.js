@@ -1,26 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { userLogin } from "../actions/index";
+import "../App.css";
 
-import { Link } from 'react-router-dom';
+const Login = props => {
+  const [login, setLogin] = useState({ username: "", password: "" });
 
-import '../App.css';
-import logo from '../logo.svg';
+  const handleChanges = event => {
+    setLogin({ ...login, [event.target.name]: event.target.value });
+  };
 
-function Login() {
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.userLogin(login);
+    localStorage.setItem("token", JSON.stringify(props.token));
+    props.history.push("/");
+  };
 
-    return (
-        <section >
-            <header>
-                <h2>Please Enter Your Contact Code to See Your Conversation Request</h2>
+  return (
+    <div className="login_form_container">
+      <h2>Login</h2>
+      <form className="login_form" onSubmit={handleSubmit}>
+        <div className="login_username_container">
+          <input
+            type="text"
+            name="username"
+            value={login.username}
+            onChange={handleChanges}
+            placeholder="username"
+          />
+        </div>
+        <div className="login_password_container">
+          <input
+            type="password"
+            name="password"
+            value={login.password}
+            placeholder="password"
+            onChange={handleChanges}
+          />
+        </div>
+        <button
+          disabled={login.username.length === 0 || login.password.length === 0}
+          className="login_btn"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  );
+};
 
-                <Link to="/"><button>Go to Home</button></Link>
-                <Link to="/Login"><button>Go to Login</button></Link>
-                <br />
-                <br />
-                <img src={logo} className="App-logo" alt="logo"/>
-                
-            </header>
-        </section>
-    );
-}
+const mapStateToProps = state => {
+  return {
+    token: state.token
+  };
+};
 
-export default Login;
+export default connect(mapStateToProps, { userLogin })(Login);
