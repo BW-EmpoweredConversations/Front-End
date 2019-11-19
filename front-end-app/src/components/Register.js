@@ -24,8 +24,8 @@ function BaseForm({ values, errors, touched }) {
       <div className='form-field'>
         <label >
           Phone:&nbsp;
-              <Field type='text' name='phone' />
-          {(touched.phone && errors.phone) ? <p className="error">{errors.phone}</p> : ''}
+              <Field type='text' name='phone_number' />
+          {(touched.phone_number && errors.phone_number) ? <p className="error">{errors.phone_number}</p> : ''}
         </label>
       </div>
       
@@ -52,7 +52,7 @@ function BaseForm({ values, errors, touched }) {
               {(touched.terms && errors.terms) ? <p className="error">{errors.terms}</p> : ''}
         </label>
       </div>
-      
+
       <div className='form-field'>
         <button type='submit'>Submit</button>
       </div>
@@ -62,10 +62,10 @@ function BaseForm({ values, errors, touched }) {
 };
 
 const RegFormFormik = withFormik({
-  mapPropsToValues: ({ name, phone, email, password, terms }) => {
+  mapPropsToValues: ({ name, phone_number, email, password, terms }) => {
     return {
       name: name || '',
-      phone: phone || '',
+      phone_number: phone_number || '',
       email: email || '',
       password: password || '',
       terms: terms || true,
@@ -79,7 +79,7 @@ const RegFormFormik = withFormik({
         props.addUser(resp.data)
         resetForm({
           name: '',
-          phone: '',
+          phone_number: '',
           email: '',
           password: '',
           terms: true,
@@ -91,7 +91,7 @@ const RegFormFormik = withFormik({
   },
   validationSchema: Yup.object().shape({
     name: Yup.string().min(2).required(),
-    phone: Yup.string().min(7).required(),
+    phone_number: Yup.string().min(7).required(),
     // role: Yup.mixed().required(),
     email: Yup.string().email().required(),
     password: Yup.string().min(4).required(),
