@@ -30,9 +30,8 @@
   font-size: 19px;
 }
 
-.login-username-container,
-.login-password-container {
-  margin-top: 32px;
+.field-container {
+  margin-top: 20px;
   padding: 0.5rem;
   font-size: 16px;
   width: 100%;
@@ -40,6 +39,7 @@
   color: black;
   border: 2px solid rgba(77, 45, 82, 0.8);
   background-color: #c0e0f7;
+  margin-bottom: 32px;
 }
 
 button {

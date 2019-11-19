@@ -39,7 +39,7 @@ const Login = props => {
             value={login.username}
             onChange={handleChanges}
             placeholder="username"
-            className="login-username-container"
+            className="field-container"
           />
         </div>
         <div>
@@ -49,7 +49,7 @@ const Login = props => {
             value={login.password}
             placeholder="password"
             onChange={handleChanges}
-            className="login-password-container"
+            className="field-container"
           />
         </div>
         <button
