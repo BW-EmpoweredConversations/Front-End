@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { userLogin } from "../actions/index";
+import { Link } from "react-router-dom";
 import "../App.css";
 
 const Login = props => {
@@ -14,31 +15,36 @@ const Login = props => {
     event.preventDefault();
     props.userLogin(login);
     localStorage.setItem("token", JSON.stringify(props.token));
-    props.history.push("/");
+    props.history.push("/Conversation");
   };
 
   return (
-    <div className="login_form_container">
+    <div className="form-container">
       <h2>Login</h2>
       <form className="login_form" onSubmit={handleSubmit}>
-        <div className="login_username_container">
+        <div>
           <input
             type="text"
             name="username"
             value={login.username}
             onChange={handleChanges}
-            placeholder="username"
+            placeholder="Name"
+            className="field-container"
           />
         </div>
-        <div className="login_password_container">
+        <div>
           <input
             type="password"
             name="password"
             value={login.password}
-            placeholder="password"
+            placeholder="Password"
             onChange={handleChanges}
+            className="field-container"
           />
         </div>
+        <p>
+          Don't have an account? Sign up <Link to="/Register">here</Link>
+        </p>
         <button
           disabled={login.username.length === 0 || login.password.length === 0}
           className="login_btn"
