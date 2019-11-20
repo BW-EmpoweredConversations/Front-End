@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "../App.css";
 
 const Login = props => {
-  const [login, setLogin] = useState({ username: "", password: "" });
+  const [login, setLogin] = useState({ email: "", password: "" });
 
   const handleChanges = event => {
     setLogin({ ...login, [event.target.name]: event.target.value });
@@ -24,11 +24,11 @@ const Login = props => {
       <form className="login_form" onSubmit={handleSubmit}>
         <div>
           <input
-            type="text"
-            name="username"
-            value={login.username}
+            type="email"
+            name="email"
+            value={login.email}
             onChange={handleChanges}
-            placeholder="Name"
+            placeholder="email"
             className="field-container"
           />
         </div>
@@ -46,7 +46,7 @@ const Login = props => {
           Don't have an account? Sign up <Link to="/Register">here</Link>
         </p>
         <button
-          disabled={login.username.length === 0 || login.password.length === 0}
+          disabled={login.email.length === 0 || login.password.length === 0}
           className="login_btn"
         >
           Login

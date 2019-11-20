@@ -31,26 +31,9 @@ const Home = props => {
     setChecked(!checked);
   };
 
-  const submitHandler = e => {
-    e.preventDefault();
-    console.log(`submit`);
-    axios
-      .post(
-        `https://empoweredconversations.herokuapp.com/api/users/:user_id/conversations`,
-        {
-          name: info.otherName,
-          phone_number: info.otherPhone
-        }
-      )
-
-      .then(res => console.log(res))
-      .then(props.history.push("/confirmed"));
-
-    setDisplayModal(false);
-    setInfo({
-      name: "",
-      phone_number: ""
-    });
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.history.push("/Terms");
   };
 
   useEffect(() => {
@@ -59,7 +42,7 @@ const Home = props => {
 
   return (
     <div className="form-container">
-      <form className="home_form_container">
+      <form className="home_form_container" onSubmit={handleSubmit}>
         <h1>Start a Conversation</h1>
         <p>
           Fill out the form below and we will send a message to your friend or
@@ -81,13 +64,7 @@ const Home = props => {
           onChange={changeHandler}
           className="field-container"
         />
-        <button
-          disabled={info.name.length === 0 || info.phone_number.length === 0}
-          className="conti_btn"
-          onClick={continueHandler}
-        >
-          Continue
-        </button>
+        <button type="submit">Continue</button>
       </form>
     </div>
   );
@@ -95,7 +72,7 @@ const Home = props => {
 
 const mapStateToProps = state => {
   return {
-    username: state.login.username,
+    name: state.login.name,
     token: state.token
   };
 };
