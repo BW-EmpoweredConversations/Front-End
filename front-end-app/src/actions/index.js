@@ -15,6 +15,9 @@ export const postRegistration = newUser => dispatch => {
       newUser
     )
     .then(res => dispatch({ type: SIGNUP_SUCCESS, payload: res.data }))
+    .then(res => {
+      localStorage.setItem("token", res.data.payload);
+    })
     .catch(err => dispatch({ type: SIGNUP_FAIL, payload: err }));
 };
 
