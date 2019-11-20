@@ -7,15 +7,16 @@ import "./App.css";
 import Header from "./components/Header";
 import Register from "./components/Register";
 import Login from "./components/Login";
-// import StartConvo from "./components/StartConvo";
-import MsgForm from "./components/MsgForm";
+import StartConvo from "./components/StartConvo";
 import Terms from "./components/Terms";
+import Responder from "./components/RespondForm";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Route exact path="/Conversation" component={MsgForm} />
+      <Route exact path="/Conversation" component={StartConvo} />
+      <Route exact path="/Responder" component={Responder} />
       <Route exact path="/Register" component={Register} />
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Terms" component={Terms} />
