@@ -35,7 +35,12 @@ export default function Header() {
         <Header>Empowered Conversations</Header>
       </HeaderContainer>
       <div className="nav-container">
-        <a href="https://zealous-williams-0d9378.netlify.com/">Home</a>
+        <a
+          href="https://zealous-williams-0d9378.netlify.com/"
+          className="nav-a"
+        >
+          Home
+        </a>
         <Link to="/Conversation" className="nav">
           Start a Conversation
         </Link>

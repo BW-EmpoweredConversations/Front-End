@@ -9,6 +9,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 // import StartConvo from "./components/StartConvo";
 import MsgForm from "./components/MsgForm";
+import Terms from "./components/Terms";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route exact path="/Conversation" component={MsgForm} />
       <Route exact path="/Register" component={Register} />
       <Route exact path="/Login" component={Login} />
+      <Route exact path="/Terms" component={Terms} />
     </div>
   );
 }
