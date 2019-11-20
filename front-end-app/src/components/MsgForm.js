@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 import "../App.css";
+import MessangerVid from "./MessangerVid";
 
 const Home = props => {
   const [info, setInfo] = useState({
@@ -42,6 +42,7 @@ const Home = props => {
 
   return (
     <div className="form-container">
+      <MessangerVid />
       <form className="home_form_container" onSubmit={handleSubmit}>
         <h1>Start a Conversation</h1>
         <p>

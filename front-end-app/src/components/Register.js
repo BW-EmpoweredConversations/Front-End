@@ -20,7 +20,7 @@ const Registration = props => {
   const submitHandler = e => {
     e.preventDefault();
     props.postRegistration(user);
-    props.history.push("/Conversation");
+    props.history.push("/Login");
   };
 
   return (

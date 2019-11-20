@@ -37,7 +37,7 @@ export const messageSend = newMessage => dispatch => {
   dispatch({ type: SEND_MESSAGE_START });
   axios
     .post(
-      "https://empoweredconversations.herokuapp.com/api/auth/register",
+      "https://empoweredconversations.herokuapp.com/api/users/:user_id/conversations",
       newMessage
     )
     .then(res => dispatch({ type: SEND_MESSAGE_SUCCESS, payload: res.data }))
