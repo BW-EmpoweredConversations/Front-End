@@ -20,7 +20,7 @@ export const postRegistration = newUser => dispatch => {
     )
     .then(res => dispatch({ type: SIGNUP_SUCCESS, payload: res.data }))
     .then(res => {
-      localStorage.setItem("token", res.data.payload);
+      localStorage.setItem("token", res.data.authorization);
     })
     .catch(err => dispatch({ type: SIGNUP_FAIL, payload: err }));
 };
@@ -29,7 +29,12 @@ export const userLogin = user => dispatch => {
   dispatch({ type: LOGIN_START });
   axios
     .post("https://empoweredconversations.herokuapp.com/api/auth/login", user)
-    .then(res => dispatch({ type: LOGIN_SUCCESS, payload: res.data }))
+    .then(res => {
+      console.log(res);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+      localStorage.setItem("token", res.data.authorization);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+    })
     .catch(err => dispatch({ type: LOGIN_FAIL, payload: err }));
 };
 
@@ -37,7 +42,7 @@ export const messageSend = newMessage => dispatch => {
   dispatch({ type: SEND_MESSAGE_START });
   axios
     .post(
-      "https://empoweredconversations.herokuapp.com/api/auth/register",
+      "https://empoweredconversations.herokuapp.com/api/users/:user_id/conversations",
       newMessage
     )
     .then(res => dispatch({ type: SEND_MESSAGE_SUCCESS, payload: res.data }))

@@ -4,7 +4,7 @@ import "../App.css";
 const Terms = () => {
   const clickHandler = () => {
     window.alert("Your message has been sent!");
-    window.location = "https://zealous-williams-0d9378.netlify.com/";
+    window.location = "/Profile";
   };
   return (
     <div className="form-container">
