@@ -8,6 +8,7 @@ import {
 } from "../actions/index";
 
 const initialState = {
+  id: "",
   signup: { name: "" },
   login: { name: "" },
   isSigningUp: false,
@@ -60,7 +61,6 @@ export const reducer = (state = initialState, action) => {
         login: {
           name: action.payload.user.name
         },
-        token: action.payload.token,
         isLoggingIn: false,
         error: false,
         errorMsg: ""

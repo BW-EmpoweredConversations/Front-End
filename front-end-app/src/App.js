@@ -10,16 +10,20 @@ import Login from "./components/Login";
 import MsgForm from "./components/MsgForm";
 import Terms from "./components/Terms";
 import Responder from "./components/RespondForm";
+import StartConvo from "./components/StartConvo";
+import Profile from "./components/Profile";
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Route exact path="/Conversation" component={MsgForm} />
+      <Route exact path="/Start" component={StartConvo} />
       <Route exact path="/Responder" component={Responder} />
       <Route exact path="/Register" component={Register} />
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Terms" component={Terms} />
+      <Route exact path="/Profile" component={Profile} />
     </div>
   );
 }

@@ -41,7 +41,7 @@ export default function Header() {
         >
           Home
         </a>
-        <Link to="/Conversation" className="nav">
+        <Link to="/Start" className="nav">
           Start a Conversation
         </Link>
         <Link to="/Register" className="nav">

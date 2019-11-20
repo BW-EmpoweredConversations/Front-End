@@ -14,7 +14,6 @@ const Login = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.userLogin(login);
-    localStorage.setItem("token", JSON.stringify(props.token));
     props.history.push("/Conversation");
   };
 
