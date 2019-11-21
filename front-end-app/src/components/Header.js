@@ -14,6 +14,7 @@ export default function Header() {
 
   const HeaderContainer = styled.div`
     display: flex;
+    align-items: center;
   `;
 
   const Logo = styled.img`
@@ -22,6 +23,7 @@ export default function Header() {
   `;
 
   const Header = styled.div`
+    color: #191970;
     margin-left: 10px;
     margin-top: 10px;
     font-weight: bold;
@@ -35,21 +37,22 @@ export default function Header() {
         <Header>Empowered Conversations</Header>
       </HeaderContainer>
       <div className="nav-container">
+        <Link to="/Start" className="nav">
+          Start&nbsp;a&nbsp;Conversation
+        </Link>
+        <Link to="/Register" className="nav">
+          Sign&nbsp;Up
+        </Link>
+        <Link to="/Login" className="nav">
+          Login
+        </Link>
         <a
           href="https://zealous-williams-0d9378.netlify.com/"
           className="nav-a"
         >
           Home
         </a>
-        <Link to="/Start" className="nav">
-          Start a Conversation
-        </Link>
-        <Link to="/Register" className="nav">
-          Sign Up
-        </Link>
-        <Link to="/Login" className="nav">
-          Login
-        </Link>
+
       </div>
     </Container>
   );

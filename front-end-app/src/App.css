@@ -19,16 +19,23 @@
 }
 
 .nav-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   margin: 20px;
 }
 
 .nav,
 .nav-a {
   text-decoration: none;
-  margin: 2rem;
+  margin: 0.2rem 0.2rem;
+  padding:0.2rem 0.3rem;
   font-weight: bold;
-  color: black;
+  color:#191970;
   font-size: 19px;
+  border: 2px solid #c0e0f7;
+  border-radius: 7px;
 }
 
 .field-container {
