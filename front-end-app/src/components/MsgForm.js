@@ -16,7 +16,8 @@ const MsgForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.messageSend(info);
+    const user = JSON.parse(localStorage.getItem("user"));
+    props.messageSend(user);
     props.history.push("/Profile");
   };
 
