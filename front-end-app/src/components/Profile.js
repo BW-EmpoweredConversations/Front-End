@@ -61,6 +61,13 @@ const ProfileList = () => {
           <ConvoCard conv={item} key={index} />
         ))}
       </ProfileListDiv>
+      <button
+        onClick={
+          (localStorage.removeItem("token"), props.history.push("/Login"))
+        }
+      >
+        Logout
+      </button>
     </div>
   );
 };
