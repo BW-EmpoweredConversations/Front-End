@@ -22,7 +22,6 @@ const RegFormContainer = styled.div`
 
 
 const Registration = props => {
-  console.log(props);
   const [user, setUser] = useState({
     name: "",
     phone_number: "",
