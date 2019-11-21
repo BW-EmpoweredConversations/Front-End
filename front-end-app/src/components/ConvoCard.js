@@ -7,17 +7,18 @@ const CardContainer = styled.div`
   flex-direction: column;
   margin: auto;
   margin-top: 2%;
-  border: 3px solid greenyellow;
+  border: 5px solid #41b6e6;
+  border-radius: 7px;
   padding: 0 2%;
-  background-color: lightgoldenrodyellow;
+  background-color: #AFEEEE;
 `;
 
 const Header2 = styled.h2`
-  color: blue;
+  color: #191970;
 `;
 
 const Header3 = styled.h3`
-  color: olivedrab;
+  color: #4169E1;
 `;
 
 
