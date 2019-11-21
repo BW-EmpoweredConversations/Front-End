@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { postRegistration } from "../actions/index";
 
+import * as Yup from 'yup';
+
 const Registration = props => {
   console.log(props);
   const [user, setUser] = useState({
@@ -13,15 +15,41 @@ const Registration = props => {
     terms: true
   });
 
+  //React 1 added Yup Validation Schema for this form
+  const validationSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(2)
+      .required(),
+    phone_number: Yup.string()
+      .min(7)
+      .required(),
+    email: Yup.string()
+      .email()
+      .required()
+  });
+
   const changeHandler = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const submitHandler = e => {
     e.preventDefault();
-    props.postRegistration(user);
-    props.history.push("/Login");
+
+    // wrapped the post registration and history.push in the validation schema
+    validationSchema
+      .isValid(user)
+      .then(function (valid) {
+        if (valid) {
+          props.postRegistration(user);
+          props.history.push("/Login");
+        }else{
+          alert('One of the fields is not valid')
+        }
+        //valid - true or false
+      });
   };
+
+
 
   return (
     <div className="form-container">
@@ -72,85 +100,7 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { postRegistration })(Registration);
-// const Registration = props => {
-//   console.log(props.registration);
-//   const [user, setUser] = useState({
-//     name: "",
-//     phone_number: "",
-//     email: "",
-//     password: "",
-//     terms: true
-//   });
 
-//   const changeHandler = e => {
-//     setUser({ ...user, [e.target.name]: e.target.value });
-//   };
-
-//   const submitHandler = e => {
-//     e.preventDefault();
-//     console.log("submit registration");
-//     props.postRegistration(user);
-//     props.history.push("/login");
-//   };
-
-// return (
-// <section >
-// <div>
-//     <h2>Please Register to Start A Conversation</h2>
-
-//     <Formik
-//       initialValues={{ username: '', phone: '', email: '', password: '' }}
-//       validate={values => {
-//         const errors = {};
-//         if (!values.email) {
-//           errors.email = 'Required';
-//         } else if (
-//           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-//         ) {
-//           errors.email = 'Invalid email address';
-//         }
-//         return errors;
-//       }}
-//       onSubmit={(values, { setSubmitting }) => {
-//         setTimeout(() => {
-//           alert(JSON.stringify(values, null, 2));
-//           setSubmitting(false);
-//         };
-//       }}
-//     >
-//     {({ isSubmitting }) => (
-//         <Form>
-//             <div>
-//             <label htmlFor="username">Name or Nickname </label>
-//             <Field type="text" name="username" />
-//             </div>
-//             <div>
-//             <label htmlFor="phone">Phone Number</label>
-//             <Field type="phone" name="email" />
-//             </div>
-//             <div>
-//             <label htmlFor="email">Valid Contact Email </label>
-//             <Field type="email" name="email" />
-//             <ErrorMessage name="email" component="div" />
-//             </div>
-//             <div>
-//             <label htmlFor="password">Password </label>
-//             <Field type="password" name="password" />
-//             <ErrorMessage name="password" component="div" />
-//             </div>
-//             <div>
-//             <button type="submit" disabled={isSubmitting}>
-//                 Submit </button>
-//             </div>
-//         </Form>
-//     )}
-//     </Formik>
-// </div>
-// </section>
-// );
-// }
-
-// export default Register;
 
 // import React, { useState } from "react";
 // import { connect } from "react-redux";
@@ -319,64 +269,3 @@ export default connect(mapStateToProps, { postRegistration })(Registration);
 // export default connect(mapStateToProps, { postRegistration })(
 //   RegFormFormik(Registration)
 // );
-
-// function Register() {
-
-// return (
-// <section >
-// <div>
-//     <h2>Please Register to Start A Conversation</h2>
-
-//     <Formik
-//       initialValues={{ username: '', phone: '', email: '', password: '' }}
-//       validate={values => {
-//         const errors = {};
-//         if (!values.email) {
-//           errors.email = 'Required';
-//         } else if (
-//           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-//         ) {
-//           errors.email = 'Invalid email address';
-//         }
-//         return errors;
-//       }}
-//       onSubmit={(values, { setSubmitting }) => {
-//         setTimeout(() => {
-//           alert(JSON.stringify(values, null, 2));
-//           setSubmitting(false);
-//         }, 400);
-//       }}
-//     >
-//     {({ isSubmitting }) => (
-//         <Form>
-//             <div>
-//             <label htmlFor="username">Name or Nickname </label>
-//             <Field type="text" name="username" />
-//             </div>
-//             <div>
-//             <label htmlFor="phone">Phone Number</label>
-//             <Field type="phone" name="email" />
-//             </div>
-//             <div>
-//             <label htmlFor="email">Valid Contact Email </label>
-//             <Field type="email" name="email" />
-//             <ErrorMessage name="email" component="div" />
-//             </div>
-//             <div>
-//             <label htmlFor="password">Password </label>
-//             <Field type="password" name="password" />
-//             <ErrorMessage name="password" component="div" />
-//             </div>
-//             <div>
-//             <button type="submit" disabled={isSubmitting}>
-//                 Submit </button>
-//             </div>
-//         </Form>
-//     )}
-//     </Formik>
-// </div>
-// </section>
-// );
-// }
-
-// export default Register;
