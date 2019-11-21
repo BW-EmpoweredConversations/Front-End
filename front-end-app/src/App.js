@@ -12,12 +12,13 @@ import Terms from "./components/Terms";
 import Responder from "./components/RespondForm";
 import StartConvo from "./components/StartConvo";
 import Profile from "./components/Profile";
+import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Route exact path="/Conversation" component={MsgForm} />
+      <PrivateRoute exact path="/Conversation" component={MsgForm} />
       <Route exact path="/Start" component={StartConvo} />
       <Route exact path="/Responder" component={Responder} />
       <Route exact path="/Register" component={Register} />

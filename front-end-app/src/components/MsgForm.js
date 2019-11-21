@@ -1,44 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import "../App.css";
 import MessangerVid from "./MessangerVid";
+import { messageSend } from "../actions/index";
 
-const Home = props => {
+const MsgForm = props => {
   const [info, setInfo] = useState({
     name: "",
     phone_number: ""
   });
 
-  console.log(props.name, props.token);
-
-  const [displayModal, setDisplayModal] = useState(false);
-  const [checked, setChecked] = useState(false);
-
   const changeHandler = e => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
 
-  const continueHandler = e => {
-    e.preventDefault();
-    setDisplayModal(true);
-  };
-
-  const cancelHandler = () => {
-    setDisplayModal(false);
-  };
-
-  const checkHandler = () => {
-    setChecked(!checked);
-  };
-
   const handleSubmit = event => {
     event.preventDefault();
-    props.history.push("/Terms");
+    props.messageSend(info);
+    props.history.push("/Profile");
   };
-
-  useEffect(() => {
-    localStorage.setItem("token", JSON.stringify(props.token));
-  }, [props.token]);
 
   return (
     <div className="form-container">
@@ -73,9 +53,8 @@ const Home = props => {
 
 const mapStateToProps = state => {
   return {
-    name: state.login.name,
     token: state.token
   };
 };
 
-export default connect(mapStateToProps, {})(Home);
+export default connect(mapStateToProps, { messageSend })(MsgForm);

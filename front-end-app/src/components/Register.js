@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { postRegistration } from "../actions/index";
 
 const Registration = props => {
-  console.log(props);
   const [user, setUser] = useState({
     name: "",
     phone_number: "",
