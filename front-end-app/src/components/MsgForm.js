@@ -17,7 +17,7 @@ const MsgForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.messageSend(info);
-    props.history.push("/Profile");
+    props.history.push("/Terms");
   };
 
   return (

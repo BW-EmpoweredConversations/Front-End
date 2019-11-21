@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from "react";
 import styled from "styled-components";
 
 const CardContainer = styled.div`
@@ -10,7 +9,7 @@ const CardContainer = styled.div`
   border: 5px solid #41b6e6;
   border-radius: 7px;
   padding: 0 2%;
-  background-color: #AFEEEE;
+  background-color: #afeeee;
 `;
 
 const Header2 = styled.h2`
@@ -18,12 +17,11 @@ const Header2 = styled.h2`
 `;
 
 const Header3 = styled.h3`
-  color: #4169E1;
+  color: #4169e1;
 `;
 
-
 const ConvoCard = props => {
-  return(
+  return (
     <CardContainer>
       <Header2>Message Sent To: {props.conv.name}</Header2>
       <Header3>Phone: {props.conv.phone_number}</Header3>

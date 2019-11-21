@@ -46,7 +46,7 @@ export const messageSend = recipient => dispatch => {
   axiosWithAuth()
     .post(
       `https://empoweredconversations.herokuapp.com/api/users/${user.id}/conversations`,
-      user
+      recipient
     )
     .then(res => {
       console.log(res);
