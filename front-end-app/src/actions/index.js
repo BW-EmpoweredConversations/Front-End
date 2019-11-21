@@ -1,4 +1,5 @@
 import axios from "axios";
+import axiosWithAuth from "../utils/axiosWithAuth";
 export const SIGNUP_START = "SIGNUP_START";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_FAIL = "SIGNUP_FAIL";
@@ -42,10 +43,10 @@ export const messageSend = recipient => dispatch => {
   dispatch({ type: SEND_MESSAGE_START });
   const user = JSON.parse(localStorage.getItem("user"));
   console.log(recipient);
-  axios
+  axiosWithAuth()
     .post(
       `https://empoweredconversations.herokuapp.com/api/users/${user.id}/conversations`,
-      user
+      recipient
     )
     .then(res => {
       console.log(res);

@@ -73,7 +73,6 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(ProfileList);
 
-
 //-------------------
 
 // Following code was my axios .get calls before my react 2 dev put in their redux data routing
@@ -97,8 +96,6 @@ export default connect(mapStateToProps)(ProfileList);
 //             .catch(error => {
 //                 console.error('Server Error', error);
 //             });
-        
-        
 
 //     }, []);
 
@@ -118,22 +115,17 @@ export default connect(mapStateToProps)(ProfileList);
 
 //     }, []);
 
-
-
 //     return (
 
 //         <div>
 //             <ProfileListDiv>
 //                 <ProfileCard prof={profile}/>
 //                 {convos.map((item, index) => (
-//                 <ConvoCard conv={item} key={index}/>    
+//                 <ConvoCard conv={item} key={index}/>
 //                 ))}
 //             </ProfileListDiv>
 //         </div>
 //     );
 // }
-
-
-
 
 // export default ProfileList;
