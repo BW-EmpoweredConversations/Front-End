@@ -21,7 +21,6 @@ const initialState = {
   error: false,
   errorMsg: "",
   token: ""
-  // message: { name: "" }
 };
 
 export const reducer = (state = initialState, action) => {

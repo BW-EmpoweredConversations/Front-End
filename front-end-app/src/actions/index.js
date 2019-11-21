@@ -52,5 +52,8 @@ export const messageSend = recipient => dispatch => {
       console.log(res);
       dispatch({ type: SEND_MESSAGE_SUCCESS, payload: res.data });
     })
-    .catch(err => dispatch({ type: SEND_MESSAGE_FAIL, payload: err }));
+    .catch(err => {
+      console.log(err.message);
+      dispatch({ type: SEND_MESSAGE_FAIL, payload: err });
+    });
 };
