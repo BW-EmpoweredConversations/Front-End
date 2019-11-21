@@ -36,7 +36,10 @@ export const userLogin = user => dispatch => {
       localStorage.setItem("token", res.data.authorization);
       localStorage.setItem("user", JSON.stringify(res.data.user));
     })
-    .catch(err => dispatch({ type: LOGIN_FAIL, payload: err }));
+    .catch(err => {
+      dispatch({ type: LOGIN_FAIL, payload: err });
+      window.alert("Either the email or password you've entered is incorrect");
+    });
 };
 
 export const messageSend = recipient => dispatch => {
