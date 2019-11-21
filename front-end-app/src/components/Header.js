@@ -5,7 +5,6 @@ import styled from "styled-components";
 export default function Header() {
   const Container = styled.div`
     display: flex;
-    justify-content: flex-end;
     justify-content: space-between;
     padding: 10px;
     background-color: #41b6e6;

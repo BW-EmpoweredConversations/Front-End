@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   font-family: "PT Serif", serif;
+  
+  min-height: 85vh;
+  padding-bottom: 15vh;
 }
 
 .App-logo {
