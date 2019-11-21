@@ -5,6 +5,22 @@ import { postRegistration } from "../actions/index";
 
 import * as Yup from 'yup';
 
+//Styled Components
+import styled from "styled-components";
+
+const RegFormContainer = styled.div`
+  width: 550px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 32px;
+  font-weight: bold;
+  background-color: #e0f0fc;
+  box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.2);
+`;
+
+
+
+
 const Registration = props => {
   console.log(props);
   const [user, setUser] = useState({
@@ -42,7 +58,7 @@ const Registration = props => {
         if (valid) {
           props.postRegistration(user);
           props.history.push("/Login");
-        }else{
+        } else {
           alert('One of the fields is not valid')
         }
         //valid - true or false
@@ -52,7 +68,7 @@ const Registration = props => {
 
 
   return (
-    <div className="form-container">
+    <RegFormContainer>
       <h2>Registration</h2>
       <form className="regis_form" onSubmit={submitHandler}>
         <input
@@ -89,7 +105,7 @@ const Registration = props => {
         />
         <button className="regis_btn">Register</button>
       </form>
-    </div>
+    </RegFormContainer>
   );
 };
 
