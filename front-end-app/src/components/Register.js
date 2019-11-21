@@ -37,7 +37,7 @@ const Registration = props => {
       .min(2)
       .required(),
     phone_number: Yup.string()
-      .min(7)
+      .min(10)
       .required(),
     email: Yup.string()
       .email()
@@ -59,7 +59,7 @@ const Registration = props => {
           props.postRegistration(user);
           props.history.push("/Login");
         } else {
-          alert('One of the fields is not valid')
+          alert('One of the fields is not valid! Minimum 10 characters for phone number ex 123 456 7890. Minimum 2 characters for name. Email must be in a valid format.')
         }
         //valid - true or false
       });
