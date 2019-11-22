@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import "../App.css";
 import ResponderVid from "./ResponderVid";
+import axios from 'axios';
 
 const Responder = props => {
   const [info, setInfo] = useState({
@@ -13,9 +14,13 @@ const Responder = props => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    window.alert("Your message has been sent!");
-    window.location = "https://zealous-williams-0d9378.netlify.com/";
+  const handleSubmit = e => {
+    e.preventDefault();
+    axios.post('https://empoweredconversations.herokuapp.com/api/conversations', {name: info.name, code: info.verification_code})
+      .then(resp => {
+        window.alert("Your message has been sent!");
+        window.location = "https://zealous-williams-0d9378.netlify.com";
+      })
   };
 
   return (
